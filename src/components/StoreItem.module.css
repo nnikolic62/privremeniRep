@@ -1,0 +1,30 @@
+
+.img{
+    object-fit: cover;
+    background-position: center;
+    height: 150px;
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons1{
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.gornji{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+span{
+    font-size: larger;
+}
