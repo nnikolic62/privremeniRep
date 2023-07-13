@@ -6,17 +6,21 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import CartProvider from "./ctx/CartProvider";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
+import theme from "./theme/theme";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <CartProvider>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </CartProvider>
+    <ThemeProvider theme={theme}>
+      <CartProvider>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </CartProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

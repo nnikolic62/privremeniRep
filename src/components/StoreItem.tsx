@@ -9,9 +9,9 @@ import {
 } from "@mui/material";
 import Button from "@mui/material/Button";
 import classes from "./StoreItem.module.css";
-import { formatNubmer } from "../util/currencyFormater";
+import { formatNumber } from "../util/currencyFormater";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import { addItem, removeItem } from "../store/storeSlice";
+import { addItem, removeItem, removeSingleItem } from "../store/storeSlice";
 
 interface StoreItemProps {
   id: number;
@@ -20,18 +20,10 @@ interface StoreItemProps {
   imgUrl: string;
 }
 
+
 function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
   const items = useAppSelector((state) => state.store.items);
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-      console.log(items);
-  }, [items]);
-
-  // const handleAdd = () => {
-  //   // console.log(id)
-  //   dispatch(addItem({ id: id, quantity: 1, price: price }))
-  // }
 
   return (
     <Card>
@@ -47,23 +39,26 @@ function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
             {name}
           </Typography>
           <Typography gutterBottom variant="h5" component="span" color="gray">
-            {formatNubmer(price)}
+            {formatNumber(price)}
           </Typography>
         </Box>
         <Box>
-          {items[id] !== undefined ? (
+          {items.find((item) => item.id === id) !== undefined ? (
             <div className={classes.buttons1}>
               <div className={classes.gornji}>
                 <Button
                   color="primary"
-                  sx={{ fontSize: "25px" }}
-                  onClick={() => dispatch(removeItem(id))}
+                  sx={{ fontSize: "25px", padding: 0, margin: 0}}
+                  size='small'
+                  onClick={() => dispatch(removeSingleItem(id))}
                 >
                   -
                 </Button>
                 <p>
                   <span>
-                    {items[id] !== undefined ? items[id].quantity : 0}
+                    {items.find((item) => item.id === id) !== undefined
+                      ? items.find((item) => item.id === id)!.quantity
+                      : 0}
                   </span>{" "}
                   in cart
                 </p>
@@ -71,13 +66,25 @@ function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
                   color="primary"
                   sx={{ fontSize: "25px", padding: 0 }}
                   onClick={() =>
-                    dispatch(addItem({ id: id, quantity: 1, price: price }))
+                    dispatch(
+                      addItem({
+                        id: id,
+                        quantity: 1,
+                        price: price,
+                        img: imgUrl,
+                        name: name,
+                      })
+                    )
                   }
                 >
                   +
                 </Button>
               </div>
-              <Button color="warning" variant="contained">
+              <Button
+                color="warning"
+                variant="contained"
+                onClick={() => dispatch(removeItem(id))}
+              >
                 Remove
               </Button>
             </div>
@@ -88,7 +95,15 @@ function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
                 variant="contained"
                 fullWidth
                 onClick={() =>
-                  dispatch(addItem({ id: id, quantity: 1, price: price }))
+                  dispatch(
+                    addItem({
+                      id: id,
+                      quantity: 1,
+                      price: price,
+                      img: imgUrl,
+                      name: name,
+                    })
+                  )
                 }
               >
                 + Add To Cart

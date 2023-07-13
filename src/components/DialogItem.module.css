@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    row-gap: 15px;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 3;
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+img{
+    background-position: center;
+    background-size: cover;
+    height: 150px;
+    width: 200px;
+}
+
+.quantity{
+    color: lightgrey;
+    font-size: small;
+}

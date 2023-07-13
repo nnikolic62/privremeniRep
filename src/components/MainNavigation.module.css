@@ -17,6 +17,7 @@
 
 .list{
     list-style-type: none;
+    padding-left: 0;
 }
 
 .list li{
@@ -31,7 +32,7 @@
 }
 
 .list .active{
-    color: wheat
+    color: lightblue
 }
 
 .list li a::after{
@@ -40,9 +41,9 @@
     left: 10px;
     content: '';
     width: 0;
-    height: 3px;
+    height: 2px;
     width: 0px;
-    background: aquamarine;
+    background: white;
     transition: .2s ease-in;
 }
 
@@ -52,7 +53,7 @@
 
 .btn{
     position: relative;
-    
+    margin-right: 15px !important;
 }
 
 .badge{

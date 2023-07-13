@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 40%;
+    padding: 15px;
+}
+
+.textBox{
+    align-content: flex-start;
+}
+
+.user{
+    color: lightgray;
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: fit-content;
+}

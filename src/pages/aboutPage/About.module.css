@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.textArea{
+    width: 300px;
+}
+
+.rating{
+    align-items: center;
+    margin-top: 20px;
+}

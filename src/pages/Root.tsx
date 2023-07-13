@@ -13,9 +13,9 @@ function Root() {
         <MainNavigation />
         <StoreDialog />
       </header>
-      <Container sx={{marginTop: '1rem'}}>
+      <main>
         <Outlet />
-      </Container>
+      </main>
     </>
   )
 }

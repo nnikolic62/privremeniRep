@@ -25,6 +25,11 @@
     align-items: center;
 }
 
+.gornji button.MuiButton-root {
+    min-width: unset; /* override the default button width */
+    padding: 8px 12px; /* adjust the button padding to make it smaller */
+  }
+
 span{
     font-size: larger;
 }

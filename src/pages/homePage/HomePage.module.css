@@ -1,0 +1,63 @@
+.container {
+  height: 25rem;
+  width: 100%;
+  /* background-image: url('images/storeImg.webp'); */
+  background-position: center;
+  /* transform: rotate(-5deg) translateY(-4rem) translateX(-1rem); */
+}
+
+.textContainer {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.message {
+  display: inline-block;
+  position: relative;
+    animation: move 3s ease-in-out 1s infinite forwards;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(20%);
+  }
+  25% {
+    transform: translateX(60%);
+  }
+  25% {
+    transform: translateX(80%);
+  }
+  100% {
+    transform: translateX(100%);
+    left: 100%;
+  }
+}
+.slideIn {
+  animation-name: slide-in;
+}
+
+.slideOut {
+  animation-name: slide-out;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes slide-out {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
