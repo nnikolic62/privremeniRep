@@ -67,6 +67,7 @@ function Home() {
         ))}
       </Carousel>
       <h1>Welcome {loggedUser} to the main brach!!!</h1>
+
       <div className={classes.logoImg}>
         <img src="images/storeImg.webp" alt="err" />
       </div>
